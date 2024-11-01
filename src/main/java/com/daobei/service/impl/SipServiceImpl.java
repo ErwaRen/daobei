@@ -31,10 +31,12 @@ public class SipServiceImpl implements SipService {
             log.info("[sendSip -- 开始发送]");
             socket.send(sendPacket);
             log.info("[sendSip -- 发送结束]");
+
             // 接收数据包
             DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
             log.info("[sendSip -- 开始接收]");
             socket.receive(receivePacket);
+
             log.info("[sendSip -- 接收结束]");
             String receivedMessage = new String(receivePacket.getData(), 0, receivePacket.getLength());
             log.info("[sendSip -- Received from Server: {}]", receivedMessage);
